@@ -23,17 +23,8 @@
         timeconvert:function (min,max) {
             var _this = this,
                 minTime = (new Date(min)).getTime()/1000,
-                maxTime = (new Date(max)).getTime()/1000,
-                rdnum = 0,
-                rdTime = 0;
-            if(maxTime > minTime){
-                rdnum = parseInt((Math.random()*(maxTime-minTime))+1);
-                rdTime = rdnum+minTime;
-            }else {
-                rdnum = parseInt((Math.random()*(minTime-maxTime))+1);
-                rdTime = rdnum+maxTime;
-            }
-            return _this.gTime(rdTime);
+                maxTime = (new Date(max)).getTime()/1000;
+            return _this.gTime(maxTime > minTime ? (parseInt((Math.random()*(maxTime-minTime))+1)+minTime) : (parseInt((Math.random()*(minTime-maxTime))+1)+maxTime));
         },
         gTime: function (datetime) {
             var _this = this,
