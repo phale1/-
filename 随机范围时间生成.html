@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://www.hqc.cn/statics/js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+
+    var getTime = {
+        into:function () {
+            this.event();
+        },
+        event:function () {
+            var _this = this,
+                minTime = '2015-01-01',
+                maxTime = '2018-01-31';
+            alert(_this.timeconvert(minTime,maxTime));
+        },
+        timeconvert:function (min,max) {
+            var _this = this,
+                minTime = (new Date(min)).getTime()/1000,
+                maxTime = (new Date(max)).getTime()/1000,
+                rdnum = 0,
+                rdTime = 0;
+            if(maxTime > minTime){
+                rdnum = parseInt((Math.random()*(maxTime-minTime))+1);
+                rdTime = rdnum+minTime;
+            }else {
+                rdnum = parseInt((Math.random()*(minTime-maxTime))+1);
+                rdTime = rdnum+maxTime;
+            }
+            return _this.gTime(rdTime);
+        },
+        gTime: function (datetime) {
+            var _this = this,
+                time = new Date(datetime*1000);
+                y = time.getFullYear(),
+                m = time.getMonth()+1,
+                d = time.getDate();
+            return y+_this.timeadd(m)+_this.timeadd(d);
+        },
+        timeadd: function (m) {
+            return m<10?'0'+m:m
+        }
+
+
+    };
+    $(function () {
+        getTime.into();
+    });
+
+
+</script>
+</html>
