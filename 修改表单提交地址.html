@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://www.hqc.cn/statics/js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<form action="test.php" id="form">
+    <input type="text" name="user" value="admin">
+    <input type="text" name="pwd" value="adminpwd">
+    <input type="submit" id="btn">
+</form>
+<script>
+    $('#btn').click(function () {
+        var $f = $('#form'),
+            orderNo = test,
+            payerName = phale;
+        $f.action = $f.action + "?orderNo="+ orderNo +"&payerName="+payerName;
+    })
+</script>
+</body>
+</html>
