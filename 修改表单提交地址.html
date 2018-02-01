@@ -6,17 +6,18 @@
     <script type="text/javascript" src="http://www.hqc.cn/statics/js/jquery-1.9.1.min.js"></script>
 </head>
 <body>
-<form action="test.php" id="form">
+<form action="test.php"  method="post">
     <input type="text" name="user" value="admin">
     <input type="text" name="pwd" value="adminpwd">
     <input type="submit" id="btn">
 </form>
 <script>
     $('#btn').click(function () {
-        var $f = $('#form'),
-            orderNo = test,
-            payerName = phale;
-        $f.action = $f.action + "?orderNo="+ orderNo +"&payerName="+payerName;
+        var f = document.getElementsByTagName("form")[0],
+            orderNo = 'test',
+            payerName = 'phale';
+        f.action = f.action + '?type=payment&sn=' + orderNo + '&paymentPluginId=' + orderNo + '&amount=' + orderNo + '';
+        alert(f.action)
     })
 </script>
 </body>
